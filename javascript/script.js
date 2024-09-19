@@ -85,8 +85,18 @@ const anniversaryMessage = `Hey Sofia My Love,
 
 Happy anniversary! Time really flies when you’re with someone as amazing as you. It’s been 2 months now that we have reached our anniversary and your birthday is just around the corner! Time really flies when I’m having fun and with you every day is just the best. 😊
 
-... (message truncated for brevity)
-`;
+I just wanted to take a moment to tell you how much I love you and how grateful I am to have you in my life. You’re the love of my life, and I adore the way you always know how to make me smile and feel special.
+
+I know we both have our quirks and flaws and sometimes things can get a bit tough. There are moments when I need to learn from you and I will try my best and will keep trying to change and there can be times when we both can be a bit difficult. But honestly that’s just part of what makes our relationship real and strong having those moments and being able to learn from it. It’s those little things that make you, you and I wouldn’t change a thing about you.
+
+You have this incredible way of making even the simplest moments feel special. Whether we’re binge watching or distracting me from work or just hanging out at home every moment with you is a treasure. Your laughter is infectious, your smile lights up my day and your love makes everything better.
+
+Thank you for being there for me, for supporting me, for celebrating with me and for loving me just the way I am. I will always be there for you, to support you and to love you no matter what. You’re the one I love soo much and I am so lucky to have you by my side and I can’t wait to see what the future holds for us.
+
+I hope to have many more months and even years of love, laughter, and unforgettable memories. I love you more than words can say and I am so grateful for every moment we share.
+
+I Love You Always,
+Josh`;
 
 // Display the message
 displayMessage(anniversaryMessage, anniversaryMessageElement);
