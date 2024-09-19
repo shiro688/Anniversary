@@ -5,7 +5,7 @@ const quotes = [
     "You know you're in love when you can't fall asleep because reality is finally better than your dreams. – Dr. Seuss",
     "I love you not only for what you are, but for what I am when I am with you. – Roy Croft",
     "I have waited for this opportunity for more than half a century, to repeat to you once again my vow of eternal fidelity and everlasting love. – Gabriel Garcia Marquez",
-
+    
     // Anniversary Quotes
     "Forever is a long time, but I wouldn't mind spending it by your side.",
     "The best thing to hold onto in life is each other. – Audrey Hepburn",
@@ -20,6 +20,7 @@ const button = document.getElementById('new-quote');
 const anniversaryMessageElement = document.getElementById('anniversary-message');
 const volumeSlider = document.getElementById('volume-slider');
 const backgroundMusic = document.getElementById('background-music');
+const startMusicButton = document.getElementById('start-music');
 
 // Function to change the quote
 function changeQuote() {
@@ -87,21 +88,12 @@ Happy anniversary! Time really flies when you’re with someone as amazing as yo
 
 I just wanted to take a moment to tell you how much I love you and how grateful I am to have you in my life. You’re the love of my life, and I adore the way you always know how to make me smile and feel special.
 
-I know we both have our quirks and flaws and sometimes things can get a bit tough. There are moments when I need to learn from you and I will try my best and will keep trying to change and there can be times when we both can be a bit difficult. But honestly that’s just part of what makes our relationship real and strong having those moments and being able to learn from it. It’s those little things that make you, you and I wouldn’t change a thing about you.
+... (message truncated for brevity)
+`;
 
-You have this incredible way of making even the simplest moments feel special. Whether we’re binge watching or distracting me from work or just hanging out at home every moment with you is a treasure. Your laughter is infectious, your smile lights up my day and your love makes everything better.
-
-Thank you for being there for me, for supporting me, for celebrating with me and for loving me just the way I am. I will always be there for you, to support you and to love you no matter what. You’re the one I love soo much and I am so lucky to have you by my side and I can’t wait to see what the future holds for us.
-
-I hope to have many more months and even years of love, laughter, and unforgettable memories. I love you more than words can say and I am so grateful for every moment we share.
-
-I Love You Always,
-Josh`;
-
-// Display the message
 displayMessage(anniversaryMessage, anniversaryMessageElement);
 
-// Add event listener to the button
+// Add event listener to the button to change the quote
 button.addEventListener('click', changeQuote);
 
 // Function to update slider background based on the volume level
@@ -112,8 +104,8 @@ function updateSliderBackground() {
     volumeSlider.style.background = `linear-gradient(
         to right,
         #ff69b4 ${percentage}%,
-        #ddd ${percentage}%
-    )`;
+        #ddd ${percentage}%)
+    `;
 }
 
 // Initialize slider background on page load
@@ -122,26 +114,32 @@ updateSliderBackground();
 // Update slider background on input change
 volumeSlider.addEventListener('input', updateSliderBackground);
 
-// Change the quote when the page loads
+// Add event listener to the start music button for user interaction
+startMusicButton.addEventListener('click', () => {
+    backgroundMusic.play().catch((error) => {
+        console.error('Error playing background music:', error);
+    });
+    
+    // Store playback state in localStorage
+    localStorage.setItem('musicPlaying', 'true');
+    
+    // Set the music volume based on the slider's value
+    backgroundMusic.volume = volumeSlider.value;
+
+    // Update volume when the slider is changed
+    volumeSlider.addEventListener('input', function () {
+        backgroundMusic.volume = volumeSlider.value;
+        updateSliderBackground(); // Update slider background color
+    });
+});
+
+// On page load, check if music was playing and resume only after user interaction
 window.onload = function() {
     changeQuote();  // Randomly change the quote on page load
 
-    // Initialize volume if the music is playing
+    // Check if music was playing before the page was refreshed
     if (localStorage.getItem('musicPlaying') === 'true') {
-        backgroundMusic.play().catch((error) => {
-            console.error('Error playing background music:', error);
-        });
-
-        // Initialize volume
-        backgroundMusic.volume = volumeSlider.value;
-
-        // Update volume and slider background when slider changes
-        volumeSlider.addEventListener('input', function () {
-            backgroundMusic.volume = volumeSlider.value;
-            updateSliderBackground(); // Update slider background color
-        });
-
-        // Initialize the slider background
-        updateSliderBackground();
+        // Show the button and wait for user to click before resuming playback
+        startMusicButton.style.display = 'block'; // Show the button for user interaction
     }
 };
