@@ -1,0 +1,79 @@
+/* Apply background image to the body */
+body {
+    background: url('../images/home_bg.jpg') no-repeat center center fixed; /* Ensure the background image covers the viewport */
+    background-size: cover; /* Scale the image to cover the entire viewport */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styling for centering content */
+.container {
+    position: relative;
+    max-width: 90%; /* Adjust container width for responsiveness */
+    margin: 0 auto; /* Center container horizontally */
+    padding: 20px; /* Add some padding */
+    background: rgba(204, 172, 129, 0.9); /* Slightly darker pastel brown with yellow tint */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for more depth */
+    border: 3px solid #c88a1d; /* Border color to highlight the box (dark pastel yellow-orange) */
+}
+
+/* Button styling */
+button {
+    background-color: #e09e2d; /* Darker pastel yellow-orange */
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    color: #fff; /* White text color */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for more depth */
+}
+
+button:hover {
+    background-color: #c88a1d; /* Slightly darker shade of pastel yellow-orange */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    button {
+        padding: 10px 20px; /* Adjust button padding for smaller screens */
+        font-size: 1.2rem; /* Adjust font size for button */
+    }
+
+    .container {
+        padding: 10px; /* Reduce container padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; /* Further reduce font size for very small screens */
+    }
+
+    button {
+        padding: 8px 15px; /* Further adjust button padding */
+        font-size: 1rem; /* Further adjust font size for button */
+    }
+
+    .container {
+        padding: 5px; /* Further reduce container padding */
+    }
+}
