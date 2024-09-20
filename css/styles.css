@@ -101,12 +101,14 @@ h1 {
 blockquote {
     font-size: 1.5rem;
     margin: 20px auto;
+    width: 80%;
     font-style: italic;
     color: #a500a1; /* Darker pink for emphasis */
     border: 2px solid #b3006f; /* Use darker pink for border */
     padding: 10px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    background: url('../images/hearts_bg.jpg') no-repeat center center; /* Correct path */
+
 }
 
 footer {
@@ -152,7 +154,7 @@ footer {
     font-size: 1.2rem;
     color: #333; /* Keeping this darker for readability */
     margin: 20px auto;
-    width: 80%;
+    width: 70%;
     max-height: 100%; /* Fixed height for the message box */
     overflow: hidden; /* Prevent scrolling within the message box */
     text-align: left;
